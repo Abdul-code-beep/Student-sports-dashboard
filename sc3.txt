@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script >
+        async function fetchData()
+        {
+            try{
+                let response=await fetch("http://localhost:8080/Student-management-system/fetchData");
+                let data=await response.json();
+                
+                
+                document.getElementById('name').textContent=data.name;
+                document.getElementById('id').textContent=data.id;
+                document.getElementById('course').textContent=data.course;
+                document.getElementById('dob').textContent=data.dob;
+                document.getElementById('contact').textContent=data.mobile;
+                document.getElementById('gmail').textContent=data.gmail;
+                document.getElementById('address').textContent=data.address;
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        }
+        fetchData();
+        function logout(){
+        window.location.replace("index.html");
+        sessionStorage.clear();
+        }
+        </script>
+</head>
+<body>
+    <header>
+        <div class="logo" title="University Management System">
+            <img src="./images/logo.png" alt="">
+            <h2>Ultimate <span class="danger">memorial sports </span> for students</h2>
+        </div>
+        <div class="navbar">
+            <a href="#" class="active"> 
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+           
+           
+            <a href="#">
+                <span class="material-icons-sharp" onclick="">logout</span>
+                <button class="logout_btn" onclick="logout()" style="text-decoration: none; border: none;">Logout</button>
+            </a>
+        </div>
+        <div id="profile-btn">
+            <span class="material-icons-sharp">person</span>
+        </div>
+        <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+        </div>
+        
+    </header>
+    <div class="container">
+        <aside>
+            <div class="profile">
+                <div class="top">
+                    <div class="profile-photo">
+                        <img src="./images/user.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <p id="name">Hey, <b>Abdul</b> </p>
+                        <small class="text-muted" id="id">12102030</small>
+                    </div>
+                </div>
+                <div class="about">
+                    <h5>Course</h5>
+                    <p id="course">MCA</p>
+                    <h5>DOB</h5>
+                    <p id="dob">05-08-2001</p>
+                    <h5>Contact</h5>
+                    <p id="contact">1234567890</p>
+                    <h5>Email</h5>
+                    <p id="gmail">satish24@gmail.com</p>
+                    <h5>Address</h5>
+                    <p id="address">Berhampur,Odisha</p>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <h1>your selected sports attendance</h1>
+            <div class="subjects">
+                <div class="eg">
+                    <span class="material-icons-sharp">architecture</span>
+                    <h3>Cricket</h3>
+                    <h2>12/14</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>86%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="mth">
+                    <span class="material-icons-sharp">functions</span>
+                    <h3>volley ball</h3>
+                    <h2>27/29</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>93%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="cs">
+                    <span class="material-icons-sharp">computer</span>
+                    <h3>basket ball</h3>
+                    <h2>27/30</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>81%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="cg">
+                    <span class="material-icons-sharp">dns</span>
+                    <h3>hockey</h3>
+                    <h2>24/25</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>96%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <div class="net">
+                    <span class="material-icons-sharp">router</span>
+                    <h3>tennis</h3>
+                    <h2>25/27</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>92%</p></div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+            </div>
+
+           
+        </main>
+
+        <div class="right">
+            <div class="announcements">
+                <h2>Announcements</h2>
+                <div class="updates">
+                    <div class="message">
+                        <p> <b>notice 1</b> cricket tournamanet is going to start in feb 2025.</p>
+                        <small class="text-muted">2 Minutes Ago</small>
+                    </div>
+                    <div class="message">
+                        <p> <b>notice 2</b>volley ball new team selection started.</p>
+                        <small class="text-muted">10 Minutes Ago</small>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="leaves">
+                <h2>Upcoming events</h2>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/ds.jpg" alt=""></div>
+                    <div class="info">
+                        <h3>basket ball final match on 26 feb 2025</h3>
+                        <small class="text-muted">latest</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/python.jpg" alt=""></div>
+                    <div class="info">
+                        <h3> tennis ball final match on 26 feb 2025</h3>
+                        <small class="text-muted">latest</small>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <div class="profile-photo"><img src="./images/sc.jpg" alt=""></div>
+                    <div class="info">
+                        <h3>more updates to come</h3>
+                        <small class="text-muted">latest</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <script src="app.js"></script>
+</body>
+</html>

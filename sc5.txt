@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student sport Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" href="style.css">
+	<script >
+	function logout(){
+        window.location.replace("index.html");
+        sessionStorage.clear();
+        }
+	</script>
+    <style>
+        header{position: relative;}
+        .change-password-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 90vh;
+        }
+        .change-password-container form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: var(--border-radius-2);
+            padding : 3.5rem;
+            background-color: var(--color-white);
+            box-shadow: var(--box-shadow);
+            width: 95%;
+            max-width: 32rem;
+        }
+        .change-password-container form:hover{box-shadow: none;}
+        .change-password-container form input[type=password]{
+            border: none;
+            outline: none;
+            border: 1px solid var(--color-light);
+            background: transparent;
+            height: 2rem;
+            width: 100%;
+            padding: 0 .5rem;
+        }
+        .change-password-container form .box{
+            padding: .5rem 0;
+        }
+        .change-password-container form .box p{
+            line-height: 2;
+        }
+        .change-password-container form h2+p{margin: .4rem 0 1.2rem 0;} 
+        .btn{
+            background: none;
+            border: none;
+            border: 2px solid var(--color-primary) !important;
+            border-radius: var(--border-radius-1);
+            padding: .5rem 1rem;
+            color: var(--color-white);
+            background-color: var(--color-primary);
+            cursor: pointer;
+            margin: 1rem 1.5rem 1rem 0;
+            margin-top: 1.5rem;
+        }
+        .btn:hover{
+            color: var(--color-primary);
+            background-color: transparent;
+        }
+        .inputClass{
+            border: none;
+            outline: none;
+            border: 1px solid var(--color-light);
+            background: transparent;
+            height: 2rem;
+            width: 100%;
+            padding: 0 .5rem;
+        }
+        .required{
+            color: rgb(226, 14, 14);
+        }
+        .dis{
+            color:rgb(2, 250, 89);
+          
+        }
+        .logpara{
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function validatePassword() {
+            const newPassword = document.getElementById("newPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (newPassword !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match.";
+                return false; // Prevent form submission
+            }
+
+            errorMessage.textContent = ""; // Clear any previous error messages
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+            <h2>Ultimate <span class="danger">Memorial </span>Sports for student</h2>
+        </div>
+  
+        <div id="profile-btn" style="display: none;">
+            <span class="material-icons-sharp">person</span>
+        </div>
+        <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+        </div>
+    </header>
+
+    <div class="change-password-container">
+        <form action="changepass" method="post" onsubmit="return validatePassword()">
+            <h2>Forget password</h2>
+            <p class="text-muted">Your new password must be different from previous used passwords.</p>
+
+           <div class="box">
+                <label for="name" class="text-muted">New Password: <span class="required">*</span>
+                </label>
+                <br>
+                <input type="text" id="newPassword" name="pass1" required class="inputClass">
+            </div>
+            <div class="box">
+                <label for="RollNo"  class="text-muted">Confirm Password:<span class="required">*</span> </label>
+                <br>
+                <input type="text" id="confirmPassword"  name="pass2" required class="inputClass">
+            </div>
+            
+            <div class="button">
+                <button  class="btn">Submit</button></a>
+            </div>
+            <p id="error-message" style="color: red;"></p>
+            <br>
+            <p class="logpara">Are You Known Your Password ? <a href="index.html" class="dis">Login</a></p>
+        </form>    
+    </div>
+
+</body>
+
+
+</html>
